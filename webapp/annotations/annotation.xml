@@ -1,0 +1,101 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/V2/Northwind/Northwind.svc/$metadata">
+        <edmx:Include Namespace="NorthwindModel"/>
+        <edmx:Include Namespace="ODataWeb.Northwind.Model"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <Annotations Target="NorthwindModel.Employee">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="FirstName"/>
+                            <PropertyValue Property="Label" String="{@i18n>firstName}"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="LastName"/>
+                            <PropertyValue Property="Label" String="{@i18n>lastName}"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="BirthDate"/>
+                            <PropertyValue Property="Label" String="{@i18n>birthDate}"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="City"/>
+                            <PropertyValue Property="Label" String="{@i18n>city}"/>
+                            <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="{@i18n>name}"/>
+                            <PropertyValue Property="ID" String="lastNameId"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#nameGroup"/>
+                        </Record>
+
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="{@i18n>info}"/>
+                            <PropertyValue Property="ID" String="infoId"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#infoGroup"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+
+            <Annotations Target="NorthwindModel.Employee">
+                <Annotation Term="UI.FieldGroup" Qualifier="nameGroup">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="{@i18n>employeeID}"/>
+                                    <PropertyValue Property="Value" Path="Orders/EmployeeID"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="{@i18n>orderID}"/>
+                                    <PropertyValue Property="Value" Path="Orders/OrderID"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="{@i18n>firstName}"/>
+                                    <PropertyValue Property="Value" Path="FirstName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.FieldGroup" Qualifier="infoGroup">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="{@i18n>region}"/>
+                                    <PropertyValue Property="Value" Path="Region"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Label" String="{@i18n>country}"/>
+                                    <PropertyValue Property="Value" Path="Country"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
