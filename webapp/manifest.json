@@ -110,7 +110,11 @@
             "forceGlobalRefresh": false,
             "objectPageHeaderType": "Dynamic",
             "considerAnalyticalParameters": true,
-            "showDraftToggle": false
+            "showDraftToggle": false,
+            "flexibleColumnLayout": {
+                "defaultTwoColumnLayoutType": "TwoColumnsMidExpanded",
+                "defaultThreeColumnLayoutType": "ThreeColumnsEndExpanded"
+            }
         },
         "pages": {
             "ListReport|Employees": {
@@ -133,27 +137,11 @@
                 },
                 "pages": {
                     "ObjectPage|Employees": {
-                        "entitySet": "Employees",
                         "component": {
-                            "name": "sap.suite.ui.generic.template.ObjectPage",
-                            "settings": {
-                                "gridTable": true,
-                                "sections": {
-                                    "Employees1::com.sap.vocabularies.UI.v1.LineItem": {
-                                        "condensedTableLayout": false
-                                    }
-                                }
-                            }
+                            "name": "sap.suite.ui.generic.template.ObjectPage"
                         },
-                        "pages": {
-                            "ObjectPage|Employees1": {
-                                "navigationProperty": "Employees1",
-                                "entitySet": "Employees",
-                                "component": {
-                                    "name": "sap.suite.ui.generic.template.ObjectPage"
-                                }
-                            }
-                        }
+                        "entitySet": "Employees",
+                        "navigationProperty": "Employees1"
                     }
                 }
             }
