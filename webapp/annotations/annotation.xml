@@ -58,6 +58,25 @@
             </Annotations>
 
             <Annotations Target="NorthwindModel.Employee">
+                <Annotation Term="UI.HeaderInfo" >
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="{@i18n>lastName}"/>
+                        <PropertyValue Property="TypeNamePlural" String="{@i18n>typenameplural}"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="FirstName"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="EmployeeID"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="TypeImageUrl" String="REPLACE_WITH_TYPEIMAGE_PATH"/>
+                        <PropertyValue Property="ImageUrl" Path="PhotoPath"/>
+                    </Record>
+                </Annotation>
+
                 <Annotation Term="UI.FieldGroup" Qualifier="nameGroup">
                     <Record Type="UI.FieldGroupType">
                         <PropertyValue Property="Data">
