@@ -102,6 +102,30 @@
             "config": {},
             "routes": [],
             "targets": {}
+        },
+        "extends": {
+            "extensions": {
+                "sap.ui.controllerExtensions": {
+                    "sap.suite.ui.generic.template.ObjectPage.view.Details": {
+                        "controllerName": "my.test.namespace.employeeslist.ext.controller.ObjectPageExt",
+                        "sap.ui.generic.app": {
+                            "Employees": {
+                                "EntitySet": "Employees",
+                                "Header": {
+                                    "Actions": {
+                                        "navToExternalID": {
+                                            "id": "navToExternalIDButton",
+                                            "text": "{@i18n>navtoexternal}",
+                                            "press": "navToExternal",
+                                            "requiresSelection": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "sap.ui.generic.app": {
